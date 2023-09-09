@@ -24,7 +24,7 @@ from typing import (
     cast,
 )
 
-from pydantic import BaseConfig, BaseModel
+from pydantic import ConfigDict, BaseConfig, BaseModel
 from pydantic.errors import ConfigError, DictError
 from pydantic.fields import SHAPE_SINGLETON
 from pydantic.fields import FieldInfo as PydanticFieldInfo
@@ -479,9 +479,7 @@ class SQLModel(BaseModel, metaclass=SQLModelMetaclass, registry=default_registry
     __sqlmodel_relationships__: ClassVar[Dict[str, RelationshipProperty]]  # type: ignore
     __name__: ClassVar[str]
     metadata: ClassVar[MetaData]
-
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
     def __new__(cls, *args: Any, **kwargs: Any) -> Any:
         new_object = super().__new__(cls)
