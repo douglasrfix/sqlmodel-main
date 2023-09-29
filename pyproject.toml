@@ -46,7 +46,7 @@ pillow = "^9.3.0"
 cairosvg = "^2.5.2"
 mdx-include = "^1.4.1"
 coverage = {extras = ["toml"], version = "^6.2"}
-fastapi = "^0.68.1"
+fastapi = "^0.103.2"
 requests = "^2.26.0"
 autoflake = "^1.4"
 isort = "^5.9.3"
